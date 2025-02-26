@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: ${OTEL_SERVICE_NAME:simple-rest-api}
+  main:
+    banner-mode: off
+
+server:
+  port: 8080
+  address: 0.0.0.0
+
+management:
+  endpoint:
+    health:
+      enabled: true
+      probes:
+        enabled: true
+        add-additional-paths: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+springdoc:
+  show-actuator: true
